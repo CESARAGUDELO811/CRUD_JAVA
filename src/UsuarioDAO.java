@@ -90,5 +90,25 @@ public void actualizarUsuario(int userid, String nuevoUsername, String nuevoPass
         System.out.println("Error al actualizar: " + e.getMessage());
     }
 }   
+    public void eliminarUsuario(int userid) {
     
+    Connection con = null;
+    PreparedStatement ps = null;
+    
+    try {
+        con = Conexion.conectar();
+        
+        String sql = "DELETE FROM usuario WHERE userid = ?";
+        
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, userid);
+        
+        ps.executeUpdate();
+        
+        System.out.println("Usuario eliminado correctamente");
+        
+    } catch (Exception e) {
+        System.out.println("Error al eliminar: " + e.getMessage());
+    }
+}
 }

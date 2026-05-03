@@ -21,9 +21,15 @@ public class EjemploConexionJDBC {
     dao.listarUsuarios();
 */
 
-     UsuarioDAO dao = new UsuarioDAO();
+    /* UsuarioDAO dao = new UsuarioDAO();
     
     dao.actualizarUsuario(8, "sofia_actualizada", "99999");
+    dao.listarUsuarios();
+*/
+    
+    UsuarioDAO dao = new UsuarioDAO();
+    
+    dao.eliminarUsuario(8); // elimina el usuario con id 8
     dao.listarUsuarios();
     }
     
