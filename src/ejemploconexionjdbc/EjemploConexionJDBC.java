@@ -15,8 +15,15 @@ public class EjemploConexionJDBC {
     
     dao.insertarUsuario("sofia", "12345");
 */
-       UsuarioDAO dao = new UsuarioDAO();
+       
+     /*  UsuarioDAO dao = new UsuarioDAO();
     
+    dao.listarUsuarios();
+*/
+
+     UsuarioDAO dao = new UsuarioDAO();
+    
+    dao.actualizarUsuario(8, "sofia_actualizada", "99999");
     dao.listarUsuarios();
     }
     

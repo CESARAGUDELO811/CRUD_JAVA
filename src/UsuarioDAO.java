@@ -66,4 +66,29 @@ public class UsuarioDAO {
         System.out.println("Error al listar: " + e.getMessage());
     }
 }
+    
+public void actualizarUsuario(int userid, String nuevoUsername, String nuevoPassword) {
+    
+    Connection con = null;
+    PreparedStatement ps = null;
+    
+    try {
+        con = Conexion.conectar();
+        
+        String sql = "UPDATE usuario SET username = ?, userpassword = ? WHERE userid = ?";
+        
+        ps = con.prepareStatement(sql);
+        ps.setString(1, nuevoUsername);
+        ps.setString(2, nuevoPassword);
+        ps.setInt(3, userid);
+        
+        ps.executeUpdate();
+        
+        System.out.println("Usuario actualizado correctamente");
+        
+    } catch (Exception e) {
+        System.out.println("Error al actualizar: " + e.getMessage());
+    }
+}   
+    
 }
