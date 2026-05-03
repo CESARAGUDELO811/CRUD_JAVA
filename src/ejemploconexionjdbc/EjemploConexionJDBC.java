@@ -11,9 +11,13 @@ public class EjemploConexionJDBC {
     
     public static void main(String[] args) {
         
-        UsuarioDAO dao = new UsuarioDAO();
+       /* UsuarioDAO dao = new UsuarioDAO();
     
     dao.insertarUsuario("sofia", "12345");
+*/
+       UsuarioDAO dao = new UsuarioDAO();
+    
+    dao.listarUsuarios();
     }
     
 }

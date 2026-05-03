@@ -11,6 +11,7 @@ package ejemploconexionjdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class UsuarioDAO {
     
@@ -36,4 +37,33 @@ public class UsuarioDAO {
             System.out.println("Error al insertar: " + e.getMessage());
         }
     }
+    
+    public void listarUsuarios() {
+    
+    Connection con = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    
+    try {
+        con = Conexion.conectar();
+        
+        String sql = "SELECT * FROM usuario";
+        
+        ps = con.prepareStatement(sql);
+        rs = ps.executeQuery();
+        
+        System.out.println("LISTA DE USUARIOS:");
+        
+        while (rs.next()) {
+            int id = rs.getInt("userid");
+            String username = rs.getString("username");
+            String password = rs.getString("userpassword");
+            
+            System.out.println(id + " - " + username + " - " + password);
+        }
+        
+    } catch (Exception e) {
+        System.out.println("Error al listar: " + e.getMessage());
+    }
+}
 }
